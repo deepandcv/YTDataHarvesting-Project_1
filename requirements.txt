@@ -2,6 +2,5 @@ google-api-python-client
 pandas
 pymongo
 pythondns
-SQLAlchemy
 streamlit
 mysql-connector-python
