@@ -339,12 +339,12 @@ def video_info():
 
 def com_info():
 #   g = 7
-  conn = pymongo.MongoClient("mongodb://localhost:27017")
-  db = conn["YouTube"]
-  coll1 = db["channel_details"]
+  myclient = pymongo.MongoClient("mongodb://localhost:27017")
+  db = myclient["YouTube"]
+  mycol = db["channel_details"]
   host = "localhost"
   user = "root"
-  password = "PrasHantHCHinnapappal19802003"
+  password = "Dcv@mysql07."
 
   connection = mysql.connector.connect(
     host=host,
@@ -366,7 +366,7 @@ def com_info():
 
   com_list = []
     
-  for com_data in coll1.find({},{"_id":0,"comment_information":1}):
+  for com_data in mycol.find({},{"_id":0,"comment_information":1}):
         for i in range(len(com_data["comment_information"])):
             com_list.append(com_data["comment_information"][i])
   df3 = pd.DataFrame(com_list)
@@ -395,7 +395,7 @@ if st.button('mysql'):
 
 host = "localhost"
 user = "root"
-password = "PrasHantHCHinnapappal19802003"
+password = "Dcv@mysql07."
 
 connection = mysql.connector.connect(
     host=host,
@@ -420,8 +420,7 @@ def Q1():
   connection.close()
 if st.button('What are the names of all the videos and their corresponding channels?'):
   Q1() 
-# a = st.empty()
- 
+
  #    --------------------------------
 
 def Q2():
@@ -565,8 +564,7 @@ def Q9():
   connection.close()
 if st.button('What is the average duration of all videos in each channel, and what are their corresponding channel names?'):
       Q9() 
-
-               
+             
 #    --------------------------------
 
 def Q10():
