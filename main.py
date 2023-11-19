@@ -197,7 +197,7 @@ def channel_info():
 # connecting to Mysql workbench
   host = "localhost"
   user = "root"
-  password = "Dcv@mysql07."
+  password = "password"
 
   connection = mysql.connector.connect(
     host=host,
@@ -344,7 +344,7 @@ def com_info():
   mycol = db["channel_details"]
   host = "localhost"
   user = "root"
-  password = "Dcv@mysql07."
+  password = "password"
 
   connection = mysql.connector.connect(
     host=host,
@@ -395,7 +395,7 @@ if st.button('mysql'):
 
 host = "localhost"
 user = "root"
-password = "Dcv@mysql07."
+password = "password"
 
 connection = mysql.connector.connect(
     host=host,
