@@ -201,7 +201,7 @@ def channel_info():
 # mysql connection
   host = "localhost"
   user = "root"
-  password = "Dcv@mysql07."
+  password = "password"
 
   connection = mysql.connector.connect(
     host=host,
@@ -249,7 +249,7 @@ def channel_info():
 def video_info():
   host = "localhost"
   user = "root"
-  password = "Dcv@mysql07."
+  password = "password"
 
   connection = mysql.connector.connect(
     host=host,
@@ -346,7 +346,7 @@ def com_info():
   mycol = mydb["channel_collection"]
   host = "localhost"
   user = "root"
-  password = "Dcv@mysql07."
+  password = "password"
 
   connection = mysql.connector.connect(
     host=host,
@@ -399,7 +399,7 @@ st.header('Channel Analytics')
 
 host = "localhost"
 user = "root"
-password = "Dcv@mysql07."
+password = "password"
 
 connection = mysql.connector.connect(
     host=host,
