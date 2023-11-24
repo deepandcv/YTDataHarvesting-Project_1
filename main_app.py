@@ -156,14 +156,14 @@ def get_comment_info(video_ids):
             response5 = request.execute()
             
             for item in response5["items"]:
-                    comment_information = dict(
-                            Comment_Id = item["snippet"]["topLevelComment"]["id"],
-                            Video_Id = item["snippet"]["videoId"],
-                            Comment_Text = item["snippet"]["topLevelComment"]["snippet"]["textOriginal"],
-                            Comment_Author = item["snippet"]["topLevelComment"]["snippet"]["authorDisplayName"],
-                            Comment_Published = item["snippet"]["topLevelComment"]["snippet"]["publishedAt"])
+              comment_information = dict(
+                      Comment_Id = item["snippet"]["topLevelComment"]["id"],
+                      Video_Id = item["snippet"]["videoId"],
+                      Comment_Text = item["snippet"]["topLevelComment"]["snippet"]["textOriginal"],
+                      Comment_Author = item["snippet"]["topLevelComment"]["snippet"]["authorDisplayName"],
+                      Comment_Published = item["snippet"]["topLevelComment"]["snippet"]["publishedAt"])
 
-                    Comment_Information.append(comment_information)    
+              Comment_Information.append(comment_information)    
         return Comment_Information
 
 def channel_details(channel_id):
@@ -194,13 +194,12 @@ def channel_info():
   mycol = mydb["channel_collection"]
   for i in mycol.find({}, {"_id": 0, "channel_information": 1}):
     v.append(i['channel_information'])
-
   df = pd.DataFrame(v)
 
 # mysql connection
   host = "localhost"
   user = "root"
-  password = "Dcv@mysql07."
+  password = "password"
 
   connection = mysql.connector.connect(
     host=host,
@@ -210,8 +209,8 @@ def channel_info():
 
   mycursor = connection.cursor()
 
-  mycursor.execute("CREATE DATABASE IF NOT EXISTS You_Tube")
-  mycursor.execute('USE You_Tube') 
+  mycursor.execute("CREATE DATABASE IF NOT EXISTS you_tube")
+  mycursor.execute('USE you_tube') 
   drop_query = "DROP TABLE IF EXISTS channels"
   mycursor.execute(drop_query)
   create_table = """CREATE TABLE IF NOT EXISTS channel_info(
@@ -248,15 +247,15 @@ def channel_info():
 def video_info():
   host = "localhost"
   user = "root"
-  password = "Dcv@mysql07."
+  password = "password"
 
   connection = mysql.connector.connect(
     host=host,
     user=user,
-    password=password
-)
+    password=password )
+  
   mycursor = connection.cursor()
-  mycursor.execute('USE You_Tube')
+  mycursor.execute('USE you_tube')
   drop_query = "DROP TABLE IF EXISTS videos"
   mycursor.execute(drop_query)
   create_query = '''
@@ -346,16 +345,15 @@ def com_info():
   mycol = mydb["channel_collection"]
   host = "localhost"
   user = "root"
-  password = "Dcv@mysql07."
+  password = "password"
 
   connection = mysql.connector.connect(
     host=host,
     user=user,
-    password=password
-)
+    password=password )
 
   mycursor = connection.cursor()
-  mycursor.execute('use You_Tube')
+  mycursor.execute('use you_tube')
   drop_query = "DROP TABLE IF EXISTS comments"
   mycursor.execute(drop_query)
   create_query = '''CREATE TABLE if not exists comments(Comment_Id varchar(100) primary key,
@@ -399,13 +397,12 @@ st.header('Channel Analytics')
 
 host = "localhost"
 user = "root"
-password = "Dcv@mysql07."
+password = "password"
 
 connection = mysql.connector.connect(
     host=host,
     user=user,
-    password=password
-)
+    password=password )
 
 mycursor = connection.cursor()
 mycursor.execute('USE you_tube')
@@ -598,6 +595,4 @@ elif selected_querry == "Which videos have the highest number of comments, and w
   if st.button("Search"):
      Q10()
 st.button('Clear')
-
-
 
